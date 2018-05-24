@@ -1,0 +1,9 @@
+{% if forms%}
+    <ul>
+    {% for form in forms%}
+    <li><a href="/fillForm/form/{{form.id}}" >{{ form.id}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No forms are filled.</p>
+{% endif %}

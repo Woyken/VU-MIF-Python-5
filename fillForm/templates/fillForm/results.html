@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Result view</title>
+        <style type="text/css">
+            @font-face {
+                font-family: "otherFont";
+                src: url("Roboto-Regular.ttf");
+            }
+
+            * {
+                font-family: "otherFont";
+            }
+            @page {
+                size: A4;
+                margin: 2cm;
+                font-size: 24px;
+            }
+            body {
+                font-size: 150%;
+            }
+            h1 {
+                text-align: center;
+            }
+            table {
+                font-size: 90%;
+                border: 1px solid;
+                border-collapse: collapse;
+            }
+            th, td {
+                text-align: left;
+            }
+            
+            table {
+                border-collapse: collapse;
+            }
+
+            table, td, th {
+                border: 1px solid black;
+            }  
+          
+        </style>
+    </head>
+    <body>
+        <div style="margin: 20px auto;">
+            <div style="text-align: center">
+                Sunaudotų degalų apyskaita Nr. {{ travel_info.formID }} už {{ travel_info.date|date:"m" }} mėn.
+            </div>
+        </div>
+        <table style="width: 70%; margin: 0px auto;">
+            <tbody>
+                <tr>
+                    <td>Automobilis</td>
+                    <td>{{ travel_info.vehicle.name }}</td>
+                    <td>Valst. Nr.</td>
+                    <td>{{ travel_info.vehicle.number }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Vairuotojas</td>
+                    <td colspan="2">{{ travel_info.driver }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Kelialapis Nr.</td>
+                    <td colspan="2">{{ travel_info.formID }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Spidometro parodymai mėnesio pradžioje</td>
+                    <td colspan="2">{{ travel_info.odometer_before }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Spidometro parodymai mėnesio pabaigoje</td>
+                    <td colspan="2">{{ travel_info.odometer_after }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Viso pravažiuota kilometrų</td>
+                    <td colspan="2">{{ travel_info.distance }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Norma 100 km</td>
+                    <td colspan="2">{{ travel_info.fuel_norm }}l</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="width: 70%; margin: 20px auto;">
+            <div style="float: right; text-align: right; margin-bottom: 20px;">
+                Degalų sunaudota už mėn. (ltr)
+            </div>
+        </div>
+        <table style="width: 70%; margin: 0px auto;">
+            <tbody>
+                <tr>
+                    <td>Likutis mėnesio pradžioje</td>
+                    <td>{{ travel_info.fuel_before }}</td>
+                </tr>
+                <tr>
+                    <td>Gauta per mėnesį</td>
+                    <td>{{ travel_info.fuel_given }}</td>
+                </tr>
+                <tr>
+                    <td>Sunaudota per mėnesį</td>
+                    <td>{{ travel_info.fuel_used }}</td>
+                </tr>
+                <tr>
+                    <td>Likutis mėnesio pabaigoje</td>
+                    <td>{{ travel_info.fuel_after }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="width: 70%; margin: 20px auto; display: flex; justify-content: space-between;">
+            <div style="text-align:left;">
+                Vairuotojas
+            </div>
+            <div style="text-align:right;">{{ travel_info.driver }}</div>
+        </div>
+    </body>
+</html>

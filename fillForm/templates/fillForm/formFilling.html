@@ -1,0 +1,10 @@
+<form method="post">
+    {%csrf_token %}
+    <h1>Kelionės lapas</h1>
+    <br/>
+    <h1>Įveskite kelionės lapo duomenis</h1>
+    <br/>
+    {{ travel_form }}
+    <br/>
+    <input type="submit" value="Submit" />
+</form>
